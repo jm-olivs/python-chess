@@ -1,0 +1,35 @@
+default_language_version:
+  python: python3.12
+fail_fast: false
+repos:
+- repo: local
+  hooks:
+    - id: ruff-format
+      name: ruff-format
+      description: "Run 'ruff format' for extremely fast Python formatting"
+      entry: ruff format --force-exclude
+      language: python
+      types_or: [python, pyi]
+      args: []
+      require_serial: true
+      additional_dependencies: []
+      minimum_pre_commit_version: "2.9.2"
+
+    - id: ruff
+      name: ruff
+      description: "Ruff, a python linter written in rust."
+      entry: ruff check
+      language: python
+      types: [python]
+      args: [--preview, --fix, --exit-non-zero-on-fix]
+
+    - id: mypy
+      name: mypy
+      description: ""
+      entry: mypy
+      language: python
+      "types_or": [python, pyi]
+      require_serial: true
+      additional_dependencies: []
+      minimum_pre_commit_version: "2.9.2"
+      args: [--config-file=./pyproject.toml]
