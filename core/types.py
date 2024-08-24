@@ -1,3 +1,3 @@
 from typing import NewType
 
-Coordinates = NewType("Coordinates", tuple[int, int])
+Coordinate = NewType("Coordinate", tuple[int, int])
