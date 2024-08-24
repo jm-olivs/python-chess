@@ -9,3 +9,8 @@ python_version = "3.12"
 [dev-packages]
 ruff = "~=0.6"
 pytest = "~=8.3"
+
+[scripts]
+app = "python main.py"
+it = "python -m pytest tests/it -v"
+ut = "python -m pytest tests/ut -v"
